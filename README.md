@@ -1,83 +1,102 @@
-# Sentiment Analysis ShopeePay Reviews
+# 📊 Sentiment Analysis ShopeePay Reviews
 
-Proyek ini bertujuan untuk melakukan analisis sentimen terhadap ulasan pengguna aplikasi **ShopeePay** di Google Play Store. Proyek ini mencakup seluruh alur kerja data science, mulai dari scraping data, preprocessing teks, hingga klasifikasi sentimen menggunakan algoritma Machine Learning.
+## 🔍 Ringkasan Proyek
 
-## 📌 Deskripsi Proyek
+Proyek ini bertujuan melakukan **analisis sentimen terhadap ulasan pengguna aplikasi ShopeePay** yang diambil dari Google Play Store. Dengan memanfaatkan teknik *Natural Language Processing (NLP)* dan *Machine Learning*, teks ulasan diklasifikasikan menjadi sentimen **positif**, **netral**, atau **negatif** untuk memahami persepsi pengguna terhadap layanan e-wallet ini.
 
-ShopeePay adalah salah satu layanan dompet digital terbesar di Indonesia. Dengan menganalisis ulasan pengguna, kita dapat memahami tingkat kepuasan pelanggan serta mengidentifikasi masalah teknis atau fitur yang perlu ditingkatkan.
+ShopeePay menjadi bagian penting ekosistem dompet digital di Indonesia dengan jutaan pengguna, sehingga analisis sentimen menjadi dasar evaluasi kepuasan dan pengalaman pengguna. 
 
-**Tujuan:**
+---
 
-* Melakukan klasifikasi teks menjadi sentimen **Positif**, **Netral**, atau **Negatif**.
-* Mengevaluasi performa model Machine Learning dalam memproses bahasa alami (NLP) bahasa Indonesia.
+## 🧠 Tujuan Utama
 
-## 📂 Struktur Repositori
+* 🗂️ **Klasifikasi sentimen teks ulasan** login ShopeePay
+* 📈 **Evaluasi performa model Machine Learning** untuk NLP
+* 🧩 **Memetakan respons pengguna** terhadap fitur dan layanan ShopeePay
+* 🛠️ **Menjadi basis pengembangan sistem rekomendasi dan monitoring feedback pengguna** 
 
-* `data/`: Folder berisi dataset mentah (raw) dan hasil pembersihan (cleaned).
-* `notebooks/`: Jupyter Notebook yang berisi langkah-langkah analisis.
-* `src/`: Skrip Python untuk pemrosesan data.
-* `requirements.txt`: Daftar library Python yang diperlukan.
-* `README.md`: Dokumentasi proyek.
+---
 
-## 🔧 Teknologi yang Digunakan
+## 📁 Struktur Repositori
 
-* **Bahasa Pemrograman:** Python 3.x
-* **Library Utama:**
-* `Pandas` & `NumPy` (Manipulasi Data)
-* `Scikit-learn` (Machine Learning & Evaluasi)
-* `NLTK` / `Sastrawi` (Preprocessing teks bahasa Indonesia)
-* `Matplotlib` / `Seaborn` (Visualisasi Data)
-* `WordCloud` (Visualisasi kata kunci)
+```
+Sentiment-Analysis-ShopeePay/
+├── [Pelatihan_Model]/                # Notebook training dan evaluasi model
+│   └── Analisis_Sentimen_ShopeePay.ipynb
+├── [Scraping]/                       # Notebook scraping ulasan
+│   └── Analisis_Sentimen_ShopeePay.ipynb
+├── shopeepay_reviews4.csv            # Dataset ulasan ShopeePay
+├── requirements.txt                  # Ketergantungan Python
+├── README.md                         # Dokumentasi proyek
+```
 
+---
 
+## 🧰 Teknologi yang Digunakan
 
-## 🚀 Alur Kerja (Workflow)
+| Komponen              | Tools / Library                |               |
+| --------------------- | ------------------------------ | ------------- |
+| Bahasa Pemrograman    | Python 3.x                     |               |
+| NLP & Text Processing | NLTK, Sastrawi                 |               |
+| Feature Engineering   | TF-IDF Vectorizer              |               |
+| Machine Learning      | Scikit-Learn                   |               |
+| Visualisasi           | Matplotlib, Seaborn, WordCloud |               |
+| Dataset               | CSV ulasan pengguna ShopeePay  | ([GitHub][1]) |
 
-1. **Data Collection:** Scraping ulasan pengguna dari Google Play Store menggunakan library `google-play-scraper`.
-2. **Preprocessing Teks:**
-* Case Folding (mengubah ke huruf kecil).
-* Filtering/Cleaning (menghapus angka, simbol, dan URL).
-* Tokenizing (pemecahan kalimat menjadi kata).
-* Stemming (mengubah kata ke kata dasar menggunakan Sastrawi).
-* Stopword Removal (menghapus kata umum yang tidak memiliki makna penting).
+---
 
+## 🧩 Alur Kerja Analisis (Workflow)
 
-3. **Feature Extraction:** Mengubah teks menjadi angka menggunakan metode **TF-IDF**.
-4. **Modelling:** Implementasi algoritma (seperti K-Nearest Neighbors, Naive Bayes, atau SVM).
-5. **Evaluation:** Mengukur performa model menggunakan *Accuracy*, *Precision*, *Recall*, dan *F1-Score*.
+1. **Pengumpulan Data (Scraping)**
 
-## 📊 Hasil & Visualisasi
+   * Mengambil ulasan pengguna ShopeePay dari Google Play Store. 
 
-*(Opsional: Anda bisa menambahkan gambar WordCloud atau grafik akurasi di sini)*
+2. **Pembersihan & *Preprocessing* Teks**
 
-* Model berhasil mencapai akurasi sebesar `XX%`.
-* Sebagian besar ulasan negatif berkaitan dengan isu `[sebutkan isu jika ada, misal: verifikasi wajah atau koneksi]`.
+   * Case folding (huruf kecil), pembersihan simbol, tokenisasi, *stopword removal*, dan *stemming* menggunakan *Sastrawi* serta *NLTK*. 
 
-## ⚙️ Cara Menjalankan
+3. **Ekstraksi Fitur**
 
-1. Clone repositori ini:
+   * Mengubah teks menjadi representasi numerik melalui TF-IDF. 
+
+4. **Pemodelan Sentimen**
+
+   * Melatih *Machine Learning* untuk klasifikasi teks menjadi sentimen. 
+
+5. **Evaluasi Model**
+
+   * Mengukur metrik seperti *accuracy*, *precision*, *recall*, dan *F1-score* untuk menilai kualitas klasifikasi model. 
+
+---
+
+## 🚀 Cara Menjalankan Proyek
+
+### 📌 1. Clone Repository
+
 ```bash
 git clone https://github.com/erzafrian/Sentiment-Analysis-ShopeePay.git
 cd Sentiment-Analysis-ShopeePay
-
 ```
 
+### 📌 2. Install Dependencies
 
-2. Install library yang dibutuhkan:
 ```bash
 pip install -r requirements.txt
-
 ```
 
+### 📌 3. Buka Jupyter Notebook
 
-3. Jalankan Jupyter Notebook untuk melihat proses analisis:
+Jalankan notebook untuk melihat langkah-langkah scraping, preprocessing, dan modelling:
+
 ```bash
-jupyter notebook notebooks/Sentiment_Analysis.ipynb
-
+jupyter notebook [Pelatihan_Model]/Analisis_Sentimen_ShopeePay.ipynb
 ```
 
+---
 
+## 📈 Hasil & Insight
 
-## 👤 Kontributor
+Proyek ini menghasilkan:
 
-* **Erzafrian** - [GitHub Profile](https://www.google.com/search?q=https://github.com/erzafrian)
+* Model klasifikasi teks uji dengan performa evaluasi yang dapat dibandingkan melalui metrik akurasi dan *confusion matrix*.
+* Visualisasi kata kunci menggunakan WordCloud untuk insight umum ulasan negatif/positif.
